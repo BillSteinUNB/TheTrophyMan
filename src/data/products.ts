@@ -1,0 +1,320 @@
+export interface Product {
+  id: string;
+  name: string;
+  category: string;
+  price: number;
+  originalPrice?: number;
+  image: string;
+  description: string;
+  features: string[];
+  minQuantity: number;
+  inStock: boolean;
+  badge?: string;
+}
+
+export const categories = [
+  { id: 'all', name: 'All Products' },
+  { id: 'trophies', name: 'Trophies & Awards' },
+  { id: 'medals', name: 'Medals & Ribbons' },
+  { id: 'plaques', name: 'Plaques' },
+  { id: 'apparel', name: 'Promotional Apparel' },
+  { id: 'pens', name: 'Pens & Writing' },
+  { id: 'promo', name: 'Promotional Items' },
+];
+
+export const products: Product[] = [
+  // Trophies
+  {
+    id: 'trophy-1',
+    name: 'Gold Cup Trophy - 12"',
+    category: 'trophies',
+    price: 45.99,
+    image: '/images/service-trophies.jpg',
+    description: 'Classic gold cup trophy with black marble base. Perfect for championships and top achievers.',
+    features: ['12 inches tall', 'Gold-plated finish', 'Black marble base', 'Free engraving included'],
+    minQuantity: 1,
+    inStock: true,
+    badge: 'Bestseller',
+  },
+  {
+    id: 'trophy-2',
+    name: 'Crystal Star Award',
+    category: 'trophies',
+    price: 65.00,
+    image: '/images/service-awards.jpg',
+    description: 'Elegant crystal star mounted on optical crystal base. Ideal for corporate recognition.',
+    features: ['Optical crystal', 'Star design', 'Includes gift box', 'Laser engraving'],
+    minQuantity: 1,
+    inStock: true,
+  },
+  {
+    id: 'trophy-3',
+    name: 'Academic Achievement Trophy',
+    category: 'trophies',
+    price: 32.50,
+    originalPrice: 39.99,
+    image: '/images/gallery-corporate-1.jpg',
+    description: 'Scholar-themed trophy with book and lamp design. Great for graduations and academic honors.',
+    features: ['Resin construction', 'Gold tone finish', '5.5 inches tall', 'Custom plate included'],
+    minQuantity: 1,
+    inStock: true,
+    badge: 'Sale',
+  },
+  
+  // Medals
+  {
+    id: 'medal-1',
+    name: 'Gold Medal with Ribbon',
+    category: 'medals',
+    price: 8.99,
+    image: '/images/gallery-sports-1.jpg',
+    description: 'Premium gold medal with red, white, and blue neck ribbon.',
+    features: ['2.5" diameter', 'Die-cast metal', 'V-neck ribbon', 'Custom engraving available'],
+    minQuantity: 5,
+    inStock: true,
+    badge: 'Popular',
+  },
+  {
+    id: 'medal-2',
+    name: 'Silver Medal with Ribbon',
+    category: 'medals',
+    price: 8.99,
+    image: '/images/gallery-sports-2.jpg',
+    description: 'Premium silver medal with red, white, and blue neck ribbon.',
+    features: ['2.5" diameter', 'Die-cast metal', 'V-neck ribbon', 'Custom engraving available'],
+    minQuantity: 5,
+    inStock: true,
+  },
+  {
+    id: 'medal-3',
+    name: 'Bronze Medal with Ribbon',
+    category: 'medals',
+    price: 8.99,
+    image: '/images/gallery-apparel-1.jpg',
+    description: 'Premium bronze medal with red, white, and blue neck ribbon.',
+    features: ['2.5" diameter', 'Die-cast metal', 'V-neck ribbon', 'Custom engraving available'],
+    minQuantity: 5,
+    inStock: true,
+  },
+  {
+    id: 'medal-4',
+    name: 'Medal Set - 1st, 2nd, 3rd Place',
+    category: 'medals',
+    price: 24.99,
+    originalPrice: 29.99,
+    image: '/images/service-trophies.jpg',
+    description: 'Complete medal set with gold, silver, and bronze medals with ribbons.',
+    features: ['3 medals included', 'Matching ribbons', 'Presentation box', 'Bulk pricing available'],
+    minQuantity: 1,
+    inStock: true,
+    badge: 'Bundle Deal',
+  },
+
+  // Plaques
+  {
+    id: 'plaque-1',
+    name: 'Walnut Plaque with Brass Plate',
+    category: 'plaques',
+    price: 55.00,
+    image: '/images/gallery-signs-1.jpg',
+    description: 'Genuine walnut plaque with engraved brass plate. Classic choice for recognition.',
+    features: ['8" x 10" size', 'Genuine walnut', 'Brass engraving plate', 'Wall mount included'],
+    minQuantity: 1,
+    inStock: true,
+  },
+  {
+    id: 'plaque-2',
+    name: 'Glass Plaque - Clear',
+    category: 'plaques',
+    price: 42.00,
+    image: '/images/service-awards.jpg',
+    description: 'Modern clear glass plaque with beveled edges. Contemporary award option.',
+    features: ['7" x 9" size', 'Beveled glass', 'Laser engraving', 'Presentation box'],
+    minQuantity: 1,
+    inStock: true,
+  },
+  {
+    id: 'plaque-3',
+    name: 'Cherry Wood Plaque',
+    category: 'plaques',
+    price: 48.50,
+    image: '/images/gallery-corporate-2.jpg',
+    description: 'Rich cherry wood finish plaque with gold engraving plate.',
+    features: ['8" x 10" size', 'Cherry wood finish', 'Gold plate', 'Free engraving'],
+    minQuantity: 1,
+    inStock: true,
+  },
+
+  // Apparel
+  {
+    id: 'apparel-1',
+    name: 'Custom T-Shirt - Screen Printed',
+    category: 'apparel',
+    price: 18.99,
+    image: '/images/service-apparel.jpg',
+    description: 'Premium cotton t-shirt with custom screen printing. Great for teams and events.',
+    features: ['100% cotton', 'Multiple colors', 'Single-color print included', 'Sizes S-3XL'],
+    minQuantity: 12,
+    inStock: true,
+    badge: 'Team Favorite',
+  },
+  {
+    id: 'apparel-2',
+    name: 'Embroidered Polo Shirt',
+    category: 'apparel',
+    price: 35.00,
+    image: '/images/gallery-apparel-2.jpg',
+    description: 'Professional polo shirt with custom embroidery. Perfect for corporate wear.',
+    features: ['Pique knit fabric', 'Left chest embroidery', 'Multiple colors', 'Sizes S-3XL'],
+    minQuantity: 6,
+    inStock: true,
+  },
+  {
+    id: 'apparel-3',
+    name: 'Custom Baseball Cap',
+    category: 'apparel',
+    price: 22.50,
+    image: '/images/service-promo.jpg',
+    description: 'Structured cap with custom embroidery. Great for uniforms and giveaways.',
+    features: ['Structured fit', 'Front embroidery', 'Adjustable strap', 'Multiple colors'],
+    minQuantity: 12,
+    inStock: true,
+  },
+  {
+    id: 'apparel-4',
+    name: 'Team Hoodie - Custom Print',
+    category: 'apparel',
+    price: 45.99,
+    image: '/images/service-apparel.jpg',
+    description: 'Warm pullover hoodie with custom screen printing or embroidery.',
+    features: ['50/50 cotton/poly', 'Front pouch pocket', 'Custom printing', 'Sizes S-3XL'],
+    minQuantity: 12,
+    inStock: true,
+  },
+
+  // Pens
+  {
+    id: 'pen-1',
+    name: 'Metal Ballpoint Pen - Engraved',
+    category: 'pens',
+    price: 6.99,
+    originalPrice: 8.99,
+    image: '/images/service-promo.jpg',
+    description: 'Sleek metal ballpoint pen with laser engraving. Professional corporate gift.',
+    features: ['Brass construction', 'Laser engraving', 'Black ink', 'Gift box included'],
+    minQuantity: 25,
+    inStock: true,
+    badge: 'Sale',
+  },
+  {
+    id: 'pen-2',
+    name: 'Executive Pen Set',
+    category: 'pens',
+    price: 24.99,
+    image: '/images/service-promo.jpg',
+    description: 'Premium pen and pencil set in presentation case. Impressive executive gift.',
+    features: ['Ballpoint + pencil', 'Gold accents', 'Engraving included', 'Leatherette case'],
+    minQuantity: 10,
+    inStock: true,
+  },
+  {
+    id: 'pen-3',
+    name: 'Stylus Pen - Custom Logo',
+    category: 'pens',
+    price: 4.50,
+    image: '/images/service-promo.jpg',
+    description: 'Dual-function pen with stylus tip for touchscreens. Great for tech companies.',
+    features: ['Ballpoint + stylus', 'Screen print logo', 'Multiple colors', 'Bulk pricing'],
+    minQuantity: 50,
+    inStock: true,
+  },
+  {
+    id: 'pen-4',
+    name: 'Wooden Pen - Maple',
+    category: 'pens',
+    price: 12.99,
+    image: '/images/service-engraving.jpg',
+    description: 'Handcrafted maple wood pen with gold accents. Unique and memorable.',
+    features: ['Genuine maple wood', 'Gold plated trim', 'Laser engraving', 'Velvet pouch'],
+    minQuantity: 12,
+    inStock: true,
+  },
+
+  // Promotional Items
+  {
+    id: 'promo-1',
+    name: 'Ceramic Coffee Mug - 11oz',
+    category: 'promo',
+    price: 9.99,
+    image: '/images/service-promo.jpg',
+    description: 'Classic white ceramic mug with custom logo print. Perfect for offices.',
+    features: ['11 oz capacity', 'Dishwasher safe', 'Full-color print', 'Gift box option'],
+    minQuantity: 24,
+    inStock: true,
+    badge: 'Popular',
+  },
+  {
+    id: 'promo-2',
+    name: 'Water Bottle - Stainless Steel',
+    category: 'promo',
+    price: 15.99,
+    image: '/images/service-promo.jpg',
+    description: 'Double-wall insulated stainless steel bottle with custom logo.',
+    features: ['20 oz capacity', 'Vacuum insulated', 'Laser engraving', 'Multiple colors'],
+    minQuantity: 24,
+    inStock: true,
+  },
+  {
+    id: 'promo-3',
+    name: 'Keychain - Metal',
+    category: 'promo',
+    price: 3.99,
+    image: '/images/service-promo.jpg',
+    description: 'Durable metal keychain with custom engraving or print.',
+    features: ['Zinc alloy', 'Engraving included', 'Split ring', 'Bulk pricing'],
+    minQuantity: 50,
+    inStock: true,
+  },
+  {
+    id: 'promo-4',
+    name: 'Tote Bag - Canvas',
+    category: 'promo',
+    price: 12.50,
+    image: '/images/service-apparel.jpg',
+    description: 'Heavy-duty canvas tote with custom screen printing. Eco-friendly choice.',
+    features: ['100% cotton canvas', 'Screen printed', '15" x 16"', 'Multiple colors'],
+    minQuantity: 24,
+    inStock: true,
+  },
+  {
+    id: 'promo-5',
+    name: 'Notebook - Custom Cover',
+    category: 'promo',
+    price: 8.99,
+    image: '/images/service-promo.jpg',
+    description: 'Professional notebook with custom cover printing. Great for conferences.',
+    features: ['80 lined pages', 'Foil or print logo', 'Hard cover', 'Ribbon bookmark'],
+    minQuantity: 25,
+    inStock: true,
+  },
+  {
+    id: 'promo-6',
+    name: 'USB Drive - 8GB',
+    category: 'promo',
+    price: 11.99,
+    image: '/images/service-promo.jpg',
+    description: 'Branded USB flash drive with your logo. Practical and memorable.',
+    features: ['8GB capacity', 'Logo printing', 'Lanyard included', 'Multiple colors'],
+    minQuantity: 25,
+    inStock: true,
+  },
+];
+
+export const getProductsByCategory = (categoryId: string): Product[] => {
+  if (categoryId === 'all') return products;
+  return products.filter((p) => p.category === categoryId);
+};
+
+export const getProductById = (id: string): Product | undefined => {
+  return products.find((p) => p.id === id);
+};
