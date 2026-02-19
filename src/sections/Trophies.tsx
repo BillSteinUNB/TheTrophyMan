@@ -8,8 +8,8 @@ interface Catalog {
 }
 
 const catalogs: Catalog[] = [
-  { name: 'Bullet by PCNA', url: 'https://www.pcna.com/en-ca/brand/bullet' },
-  { name: 'Barhill Catalog', url: 'https://catalog.barhill.com/' },
+  { name: 'Bullet by PCNA', url: 'https://www.pcna.com/en-ca/brand/bullet', logo: 'https://images.pcna.com/Data/Media/b95bc4ab-a9b0-4f34-a9d4-f2ed42465e7blogo-bullet.png' },
+  { name: 'Barhill Catalog', url: 'https://catalog.barhill.com/', logo: 'https://barhill.com/images/barhill.png' },
   { name: 'Stars Awards', url: 'https://stars.awardscat.com/#p=1' },
   { name: 'Tromart Awards', url: 'https://tromartawards.com/nc2024/#p=1' },
   { name: 'Awards of Distinction', url: 'https://www.awardsofdistinction.ca/' },
