@@ -66,9 +66,11 @@ const Clothing = () => {
           </div>
           <h2 className="text-heading text-mono-black mb-3">CLOTHING & ACCESSORIES</h2>
           <div className="w-12 h-0.5 bg-mono-black mb-4" />
-          <p className="text-body text-mono-600 max-w-xl">
-            Browse our trusted suppliers for apparel and accessories. Custom embroidery and screen printing available.
-          </p>
+          <div className="max-w-4xl mx-auto">
+            <p className="text-body text-mono-600">
+              Browse our trusted suppliers for apparel and accessories. Custom embroidery and screen printing available.
+            </p>
+          </div>
         </div>
 
         {/* Supplier Grid */}
@@ -79,27 +81,27 @@ const Clothing = () => {
               href={supplier.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group flex items-center bg-white border border-mono-200 rounded-xl px-4 py-5 transition-all duration-300 hover:border-mono-300 hover:shadow-md focus-ring ${
+              className={`group flex items-center bg-white border border-mono-200 rounded-xl px-4 py-5 transition-all duration-300 hover:border-mono-400 hover:shadow-lg focus-ring ${
                 isVisible
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-5'
               }`}
               style={{ transitionDelay: `${index * 50}ms` }}
             >
-              {/* Logo Section - Fixed Width */}
-              {supplier.logo ? (
-                <div className="w-20 h-20 flex items-center justify-center flex-shrink-0">
+              {/* Logo Section - Fixed Width Container */}
+              <div className="w-28 h-20 flex items-center justify-center flex-shrink-0">
+                {supplier.logo ? (
                   <img
                     src={supplier.logo}
                     alt={`${supplier.name} logo`}
-                    className="w-full h-full object-contain grayscale opacity-70 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+                    className="max-w-full max-h-full object-contain grayscale opacity-70 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
                   />
-                </div>
-              ) : (
-                <div className="w-20 h-20 flex items-center justify-center bg-mono-100 text-mono-600 font-bold text-xl flex-shrink-0 rounded-lg">
-                  {supplier.name.charAt(0)}
-                </div>
-              )}
+                ) : (
+                  <div className="w-16 h-16 flex items-center justify-center bg-mono-100 text-mono-600 font-bold text-xl rounded-lg">
+                    {supplier.name.charAt(0)}
+                  </div>
+                )}
+              </div>
               
               {/* Content Section */}
               <div className="flex-1 flex items-center justify-between ml-4">
