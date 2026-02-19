@@ -86,7 +86,7 @@ const Clothing = () => {
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-5'
               }`}
-              style={{ transitionDelay: `${index * 50}ms` }}
+              style={{ transitionDelay: `${index * 75}ms` }}
             >
               {/* Logo Section - Fixed Width Container */}
               <div className="w-28 h-20 flex items-center justify-center flex-shrink-0">
