@@ -69,14 +69,14 @@ const Trophies = () => {
         </div>
 
         {/* Catalog List */}
-        <div className="max-w-md mx-auto">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
           {catalogs.map((catalog, index) => (
             <a
               key={catalog.name}
               href={catalog.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group flex items-stretch overflow-hidden bg-white border-2 border-mono-200 mb-3 transition-all duration-300 hover:border-mono-black hover:shadow-lg focus-ring ${
+              className={`group flex items-stretch overflow-hidden bg-white border-2 border-mono-200 transition-all duration-300 hover:border-mono-black hover:shadow-lg focus-ring ${
                 isVisible
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-5'
