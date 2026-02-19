@@ -4,11 +4,12 @@ import { ExternalLink } from 'lucide-react';
 interface Catalog {
   name: string;
   url: string;
+  logo?: string;
 }
 
 const catalogs: Catalog[] = [
-  { name: 'Bullet by PCNA', url: 'https://www.pcna.com/en-ca/brand/bullet' },
-  { name: 'Barhill Catalog', url: 'https://catalog.barhill.com/' },
+  { name: 'Bullet by PCNA', url: 'https://www.pcna.com/en-ca/brand/bullet', logo: '/bullet-logo.jpg' },
+  { name: 'Barhill Catalog', url: 'https://catalog.barhill.com/', logo: '/barhill-logo.jpg' },
   { name: 'Stars Awards', url: 'https://stars.awardscat.com/#p=1' },
   { name: 'Tromart Awards', url: 'https://tromartawards.com/nc2024/#p=1' },
   { name: 'Awards of Distinction', url: 'https://www.awardsofdistinction.ca/' },
@@ -75,15 +76,32 @@ const Trophies = () => {
               href={catalog.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group flex items-center justify-between bg-mono-black text-white px-6 py-5 mb-3 text-base font-medium transition-all duration-300 hover:bg-mono-700 focus-ring ${
+              className={`group flex items-center justify-between bg-white border-2 border-mono-200 px-6 py-5 mb-3 transition-all duration-300 hover:border-mono-black hover:shadow-lg focus-ring ${
                 isVisible
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-5'
               }`}
               style={{ transitionDelay: `${index * 75}ms` }}
             >
-              <span>{catalog.name}</span>
-              <ExternalLink size={18} className="opacity-70 group-hover:opacity-100 transition-opacity" />
+              <div className="flex items-center gap-4">
+                {catalog.logo ? (
+                  <div className="w-16 h-16 flex items-center justify-center bg-white rounded overflow-hidden border border-mono-100">
+                    <img
+                      src={catalog.logo}
+                      alt={`${catalog.name} logo`}
+                      className="w-full h-full object-contain p-2"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-16 h-16 flex items-center justify-center bg-mono-black text-white font-bold text-xl">
+                    {catalog.name.charAt(0)}
+                  </div>
+                )}
+                <span className="text-base font-medium text-mono-black group-hover:text-mono-black">
+                  {catalog.name}
+                </span>
+              </div>
+              <ExternalLink size={18} className="text-mono-500 group-hover:text-mono-black transition-colors" />
             </a>
           ))}
         </div>
