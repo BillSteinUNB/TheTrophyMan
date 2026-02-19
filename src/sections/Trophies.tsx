@@ -69,39 +69,45 @@ const Trophies = () => {
         </div>
 
         {/* Catalog List */}
-        <div className="max-w-md mx-auto">
+        <div className="max-w-2xl mx-auto">
           {catalogs.map((catalog, index) => (
             <a
               key={catalog.name}
               href={catalog.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group flex items-center justify-between bg-white border-2 border-mono-200 px-6 py-5 mb-3 transition-all duration-300 hover:border-mono-black hover:shadow-lg focus-ring ${
+              className={`group flex items-stretch overflow-hidden bg-white border-2 border-mono-200 mb-4 transition-all duration-300 hover:border-mono-black hover:shadow-lg focus-ring ${
                 isVisible
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-5'
               }`}
               style={{ transitionDelay: `${index * 75}ms` }}
             >
-              <div className="flex items-center gap-4">
-                {catalog.logo ? (
-                  <div className="w-16 h-16 flex items-center justify-center bg-white rounded overflow-hidden border border-mono-100">
-                    <img
-                      src={catalog.logo}
-                      alt={`${catalog.name} logo`}
-                      className="w-full h-full object-contain p-2"
-                    />
-                  </div>
-                ) : (
-                  <div className="w-16 h-16 flex items-center justify-center bg-mono-black text-white font-bold text-xl">
-                    {catalog.name.charAt(0)}
-                  </div>
-                )}
-                <span className="text-base font-medium text-mono-black group-hover:text-mono-black">
+              {/* Logo Section - Full Height */}
+              {catalog.logo ? (
+                <div className="w-32 flex items-center justify-center bg-mono-50 p-4 border-r-2 border-mono-200">
+                  <img
+                    src={catalog.logo}
+                    alt={`${catalog.name} logo`}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              ) : (
+                <div className="w-32 flex items-center justify-center bg-mono-black text-white font-bold text-2xl border-r-2 border-mono-200">
+                  {catalog.name.charAt(0)}
+                </div>
+              )}
+              
+              {/* Content Section */}
+              <div className="flex-1 flex items-center justify-center px-8 py-6 relative">
+                <span className="text-lg font-serif text-mono-black group-hover:text-mono-900 transition-colors text-center">
                   {catalog.name}
                 </span>
+                <ExternalLink 
+                  size={20} 
+                  className="absolute right-6 text-mono-400 group-hover:text-mono-black transition-colors" 
+                />
               </div>
-              <ExternalLink size={18} className="text-mono-500 group-hover:text-mono-black transition-colors" />
             </a>
           ))}
         </div>
