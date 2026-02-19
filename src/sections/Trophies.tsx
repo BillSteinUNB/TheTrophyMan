@@ -10,10 +10,10 @@ interface Catalog {
 const catalogs: Catalog[] = [
   { name: 'Bullet by PCNA', url: 'https://www.pcna.com/en-ca/brand/bullet', logo: 'https://images.pcna.com/Data/Media/b95bc4ab-a9b0-4f34-a9d4-f2ed42465e7blogo-bullet.png' },
   { name: 'Barhill Catalog', url: 'https://catalog.barhill.com/', logo: 'https://barhill.com/images/barhill.png' },
-  { name: 'Stars Awards', url: 'https://stars.awardscat.com/#p=1' },
-  { name: 'Tromart Awards', url: 'https://tromartawards.com/nc2024/#p=1' },
-  { name: 'Awards of Distinction', url: 'https://www.awardsofdistinction.ca/' },
-  { name: 'Caldwell Recognition', url: 'https://caldwellrecognition.com/catalogs/awards_and_recognition/Index.html#p=1' },
+  { name: 'Stars Awards', url: 'https://stars.awardscat.com/#p=1', logo: 'https://le-cdn.hibuwebsites.com/df4eef5640214dcc921fbb808860b6b7/dms3rep/multi/opt/Star-awards-Logo-1920w.png' },
+  { name: 'Tromart Awards', url: 'https://tromartawards.com/nc2024/#p=1', logo: 'https://online.fliphtml5.com/qbjpc/accountlogo.jpg' },
+  { name: 'Awards of Distinction', url: 'https://www.awardsofdistinction.ca/', logo: 'https://www.promoplace.com/awardsofdistinction/files/0.png' },
+  { name: 'Caldwell Recognition', url: 'https://caldwellrecognition.com/catalogs/awards_and_recognition/Index.html#p=1', logo: 'https://caldwellrecognition.com/media/logo/stores/1/logo_1_.png' },
 ];
 
 const Trophies = () => {
