@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,45 +6,45 @@
 
 @layer base {
   :root {
-    /* Gold */
-    --gold: 45 65% 52%;
-    --gold-light: 47 70% 66%;
-    --gold-dark: 45 85% 39%;
+    /* Monochrome Palette */
+    --white: #FFFFFF;
+    --off-white: #FAFAFA;
+    --gray-100: #F5F5F5;
+    --gray-200: #E5E5E5;
+    --gray-300: #D4D4D4;
+    --gray-400: #A3A3A3;
+    --gray-500: #737373;
+    --gray-600: #525252;
+    --gray-700: #404040;
+    --gray-800: #262626;
+    --black: #0A0A0A;
     
-    /* Blacks */
-    --black: 0 0% 4%;
-    --black-card: 0 0% 8%;
-    --black-border: 0 0% 16%;
+    /* Functional */
+    --border: #E5E5E5;
+    --border-dark: #D4D4D4;
+    --focus: #0A0A0A;
+    --success: #16A34A;
     
-    /* Light */
-    --white: 0 0% 100%;
-    --gray-light: 40 7% 96%;
-    
-    /* Text */
-    --text-primary: 0 0% 100%;
-    --text-muted: 0 0% 63%;
-    
-    /* shadcn variables */
-    --background: 0 0% 4%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 45 65% 52%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 16%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 16%;
-    --muted-foreground: 0 0% 63%;
-    --accent: 45 65% 52%;
+    /* shadcn overrides */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 4%;
+    --primary: 0 0% 4%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 4%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
     --accent-foreground: 0 0% 4%;
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 16%;
-    --input: 0 0% 16%;
-    --ring: 45 65% 52%;
-    --radius: 0.5rem;
+    --input: 0 0% 90%;
+    --ring: 0 0% 4%;
+    --radius: 0;
   }
 }
 
@@ -58,101 +58,60 @@
   }
   
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', sans-serif;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
-  }
-  
-  .font-mono {
-    font-family: 'Space Mono', monospace;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    @apply bg-white text-[#0A0A0A] antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
 @layer utilities {
-  .text-gold {
-    color: hsl(var(--gold));
+  /* Typography */
+  .text-display {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
   }
   
-  .text-gold-light {
-    color: hsl(var(--gold-light));
+  .text-heading {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
   }
   
-  .text-gold-dark {
-    color: hsl(var(--gold-dark));
+  .text-body {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
   }
   
-  .bg-gold {
-    background-color: hsl(var(--gold));
+  .text-small {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
   }
   
-  .bg-gold-light {
-    background-color: hsl(var(--gold-light));
+  /* Section padding */
+  .section-padding {
+    padding-top: clamp(4rem, 10vh, 7.5rem);
+    padding-bottom: clamp(4rem, 10vh, 7.5rem);
   }
   
-  .bg-gold-dark {
-    background-color: hsl(var(--gold-dark));
+  /* Container */
+  .container-max {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
   
-  .border-gold {
-    border-color: hsl(var(--gold));
-  }
-  
-  .bg-black {
-    background-color: hsl(var(--black));
-  }
-  
-  .bg-black-card {
-    background-color: hsl(var(--black-card));
-  }
-  
-  .border-black-border {
-    border-color: hsl(var(--black-border));
-  }
-  
-  .text-muted-custom {
-    color: hsl(var(--text-muted));
-  }
-  
-  /* Gradient backgrounds */
-  .gradient-gold {
-    background: linear-gradient(135deg, hsl(var(--gold-dark)) 0%, hsl(var(--gold)) 50%, hsl(var(--gold-light)) 100%);
-  }
-  
-  .gradient-gold-subtle {
-    background: linear-gradient(180deg, transparent 0%, rgba(212, 175, 55, 0.1) 100%);
-  }
-  
-  /* Animation utilities */
-  .ease-reveal {
-    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  
-  /* Hover lift effect */
-  .hover-lift {
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  
-  .hover-lift:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  }
-  
-  /* Gold border glow */
-  .gold-glow {
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-  }
-  
-  /* Grain texture overlay */
-  .grain-overlay::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    opacity: 0.03;
-    pointer-events: none;
+  /* Focus styles */
+  .focus-ring:focus-visible {
+    outline: 2px solid var(--black);
+    outline-offset: 2px;
   }
 }
 
@@ -162,20 +121,19 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(var(--black));
+  background: var(--gray-100);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--black-border));
-  border-radius: 4px;
+  background: var(--gray-400);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--gold-dark));
+  background: var(--gray-500);
 }
 
-/* Selection color */
+/* Selection */
 ::selection {
-  background: hsl(var(--gold) / 0.3);
-  color: hsl(var(--white));
+  background: var(--black);
+  color: var(--white);
 }

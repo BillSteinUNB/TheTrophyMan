@@ -1,33 +1,27 @@
-import { CartProvider } from './context/CartContext';
 import Navigation from './sections/Navigation';
 import Hero from './sections/Hero';
-import Shop from './sections/Shop';
-import Services from './sections/Services';
-import Gallery from './sections/Gallery';
-import Testimonials from './sections/Testimonials';
+import Clothing from './sections/Clothing';
+import Trophies from './sections/Trophies';
+import Signs from './sections/Signs';
 import About from './sections/About';
 import Contact from './sections/Contact';
 import Footer from './sections/Footer';
-import CartDrawer from './sections/CartDrawer';
+import './App.css';
 
 function App() {
   return (
-    <CartProvider>
-      <div className="min-h-screen bg-black">
-        <Navigation />
-        <main>
-          <Hero />
-          <Shop />
-          <Services />
-          <Gallery />
-          <Testimonials />
-          <About />
-          <Contact />
-        </main>
-        <Footer />
-        <CartDrawer />
-      </div>
-    </CartProvider>
+    <div className="min-h-screen bg-white">
+      <Navigation />
+      <main>
+        <Hero />
+        <Clothing />
+        <Trophies />
+        <Signs />
+        <About />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
   );
 }
 

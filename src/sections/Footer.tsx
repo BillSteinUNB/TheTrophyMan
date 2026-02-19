@@ -1,164 +1,102 @@
-import { Trophy, Facebook, Instagram } from 'lucide-react';
-
-const footerLinks = {
-  services: [
-    { label: 'Trophies & Awards', href: '#services' },
-    { label: 'Engraving', href: '#services' },
-    { label: 'Custom Apparel', href: '#services' },
-    { label: 'Signs & Banners', href: '#services' },
-    { label: 'Promotional Products', href: '#services' },
-  ],
-  company: [
-    { label: 'About Us', href: '#about' },
-    { label: 'Gallery', href: '#gallery' },
-    { label: 'Get a Quote', href: '#contact' },
-    { label: 'Contact', href: '#contact' },
-  ],
-  support: [
-    { label: 'FAQs', href: '#' },
-    { label: 'Rush Orders', href: '#' },
-    { label: 'Bulk Pricing', href: '#' },
-    { label: 'Artwork Guidelines', href: '#' },
-  ],
-};
-
-const socialLinks = [
-  { icon: Facebook, href: 'https://facebook.com/thetrophyman', label: 'Facebook' },
-  { icon: Instagram, href: 'https://instagram.com/thetrophyman', label: 'Instagram' },
-];
-
 const Footer = () => {
   const scrollToSection = (href: string) => {
-    if (href.startsWith('#')) {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+    if (href === '#') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
+  const quickLinks = [
+    { label: 'Clothing', href: '#clothing' },
+    { label: 'Trophies', href: '#trophies' },
+    { label: 'Signs & Stickers', href: '#signs' },
+    { label: 'About', href: '#about' },
+    { label: 'Contact', href: '#contact' },
+  ];
+
   return (
-    <footer className="relative w-full bg-black border-t border-white/5">
-      {/* Main footer */}
-      <div className="w-full px-4 sm:px-6 lg:px-12 xl:px-20 py-16 lg:py-20">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12">
-          {/* Brand column */}
-          <div className="col-span-2 md:col-span-4 lg:col-span-1">
+    <footer className="bg-mono-black text-white">
+      <div className="container-max py-12 md:py-16">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
+          {/* Brand */}
+          <div>
             <a
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                scrollToSection('#');
               }}
-              className="flex items-center gap-2 group mb-6"
+              className="flex items-center gap-3 mb-4 focus-ring"
             >
-              <Trophy className="w-6 h-6 text-gold transition-transform duration-300 group-hover:scale-110" />
-              <span className="font-display text-lg font-bold text-white tracking-wide">
-                THE TROPHY MAN
+              <img
+                src="/logo.jpg"
+                alt="The Trophy Man"
+                className="w-10 h-10 object-contain"
+              />
+              <span className="text-xl font-semibold tracking-tight text-white">
+                THE TROPHY MAN LTD
               </span>
             </a>
-            <p className="text-white/50 text-sm leading-relaxed mb-4 max-w-xs">
-              Locally owned and operated in Oromocto, NB. Custom trophies, awards, 
-              apparel, signage, and promotional products.
+            <p className="text-white/70 text-sm leading-relaxed">
+              Custom awards and promotional products.<br />
+              Serving Oromocto for over 25 years.
             </p>
-            <p className="text-gold text-sm mb-6">
-              4 Brizley Street, Oromocto, NB
-            </p>
-            {/* Social links */}
-            <div className="flex gap-3">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    className="w-10 h-10 bg-white/5 flex items-center justify-center text-white/50 hover:bg-gold hover:text-black transition-all duration-300"
-                  >
-                    <Icon className="w-4 h-4" />
-                  </a>
-                );
-              })}
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wide">
+              Contact
+            </h4>
+            <div className="space-y-2 text-sm text-white/70">
+              <p>4 Brizley Street, Oromocto, NB</p>
+              <p>
+                <a href="tel:+15063578677" className="hover:text-white transition-colors focus-ring">
+                  (506) 357-8677
+                </a>
+              </p>
+              <p>
+                <a href="mailto:info@thetrophyman.ca" className="hover:text-white transition-colors focus-ring">
+                  info@thetrophyman.ca
+                </a>
+              </p>
+              <p className="text-white/50">Mon–Fri 9AM–5PM, Sat 10AM–2PM</p>
             </div>
           </div>
 
-          {/* Services */}
+          {/* Quick Links */}
           <div>
-            <h4 className="font-display text-sm font-bold text-white uppercase tracking-wider mb-4">
-              Services
+            <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wide">
+              Quick Links
             </h4>
-            <ul className="space-y-3">
-              {footerLinks.services.map((link) => (
-                <li key={link.label}>
-                  <button
-                    onClick={() => scrollToSection(link.href)}
-                    className="text-white/50 text-sm hover:text-gold transition-colors duration-300"
-                  >
-                    {link.label}
-                  </button>
-                </li>
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
+              {quickLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(link.href);
+                  }}
+                  className="text-sm text-white/70 hover:text-white transition-colors focus-ring"
+                >
+                  {link.label}
+                </a>
               ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="font-display text-sm font-bold text-white uppercase tracking-wider mb-4">
-              Company
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <button
-                    onClick={() => scrollToSection(link.href)}
-                    className="text-white/50 text-sm hover:text-gold transition-colors duration-300"
-                  >
-                    {link.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Support */}
-          <div>
-            <h4 className="font-display text-sm font-bold text-white uppercase tracking-wider mb-4">
-              Support
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.support.map((link) => (
-                <li key={link.label}>
-                  <button
-                    onClick={() => scrollToSection(link.href)}
-                    className="text-white/50 text-sm hover:text-gold transition-colors duration-300"
-                  >
-                    {link.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-white/5">
-        <div className="w-full px-4 sm:px-6 lg:px-12 xl:px-20 py-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-white/40 text-sm">
-              © {new Date().getFullYear()} The Trophy Man Ltd. All rights reserved.
-            </p>
-            <div className="flex gap-6">
-              <button className="text-white/40 text-sm hover:text-gold transition-colors duration-300">
-                Privacy Policy
-              </button>
-              <button className="text-white/40 text-sm hover:text-gold transition-colors duration-300">
-                Terms of Service
-              </button>
-            </div>
-          </div>
+        {/* Divider */}
+        <div className="border-t border-white/20 pt-8">
+          <p className="text-sm text-white/50 text-center">
+            © {new Date().getFullYear()} The Trophy Man Ltd. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

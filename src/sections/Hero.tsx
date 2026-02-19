@@ -1,113 +1,65 @@
-import { useEffect, useRef } from 'react';
-import { ArrowRight, MapPin, ShoppingBag } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
-  const textRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-up');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (textRef.current) {
-      observer.observe(textRef.current);
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const scrollToShop = () => {
-    document.querySelector('#shop')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const scrollToContact = () => {
-    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section className="relative w-full min-h-[600px] lg:min-h-[700px] overflow-hidden">
-      {/* Background Image - Full coverage */}
-      <div className="absolute inset-0">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero-bg.jpg"
-          alt="Trophy collection"
-          className="w-full h-full object-cover object-center"
+          src="/hero-bg.jpg"
+          alt="Custom trophies and awards"
+          className="w-full h-full object-cover"
         />
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50" />
+        {/* Subtle overlay for text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 min-h-[600px] lg:min-h-[700px] flex items-center">
-        <div className="w-full px-4 sm:px-6 lg:px-12 xl:px-20 py-24">
-          <div
-            ref={textRef}
-            className="max-w-2xl opacity-0"
-            style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}
-          >
-            {/* Location badge */}
-            <div className="inline-flex items-center gap-2 bg-gold/20 border border-gold/30 px-3 py-1.5 mb-5">
-              <MapPin className="w-4 h-4 text-gold" />
-              <span className="text-gold text-sm font-medium">Oromocto, New Brunswick</span>
-            </div>
+      <div className="relative z-10 container-max text-center pt-20">
+        <div className="max-w-4xl mx-auto animate-fade-up">
+          {/* Headline */}
+          <h1 className="text-display text-white mb-6 tracking-tight">
+            <span className="block">CUSTOM AWARDS.</span>
+            <span className="block">PROMOTIONAL PRODUCTS.</span>
+            <span className="block">MADE IN OROMOCTO.</span>
+          </h1>
 
-            {/* Gold accent line */}
-            <div className="w-12 h-0.5 bg-gold mb-5" />
+          {/* Subhead */}
+          <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Trusted by teams, businesses, and organizations across New Brunswick for over 25 years.
+          </p>
 
-            {/* Headline */}
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5">
-              Trophies, Awards & <span className="text-gold">Promotional Products</span>
-            </h1>
-
-            {/* Subhead */}
-            <p className="text-base lg:text-lg text-white/70 mb-8 max-w-lg leading-relaxed">
-              Locally owned in Oromocto, NB. Custom trophies, medals, plaques, apparel, 
-              pens, and promotional items. Bulk pricing available with fast turnaround.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Button
-                onClick={scrollToShop}
-                className="bg-gold text-black hover:bg-gold-light transition-all duration-200 rounded-none px-6 py-5 text-sm font-semibold group"
-              >
-                <ShoppingBag className="mr-2 w-4 h-4" />
-                Shop Now
-                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button
-                onClick={scrollToContact}
-                variant="outline"
-                className="border-white/30 text-white hover:bg-white/10 hover:border-white/50 transition-all duration-200 rounded-none px-6 py-5 text-sm font-semibold"
-              >
-                Get a Quote
-              </Button>
-            </div>
-
-            {/* Trust badges */}
-            <div className="flex flex-wrap gap-5 mt-8">
-              <div className="flex items-center gap-2 text-white/50 text-sm">
-                <div className="w-1.5 h-1.5 bg-gold rounded-full" />
-                <span>25+ Years Experience</span>
-              </div>
-              <div className="flex items-center gap-2 text-white/50 text-sm">
-                <div className="w-1.5 h-1.5 bg-gold rounded-full" />
-                <span>Bulk Pricing</span>
-              </div>
-              <div className="flex items-center gap-2 text-white/50 text-sm">
-                <div className="w-1.5 h-1.5 bg-gold rounded-full" />
-                <span>Fast Turnaround</span>
-              </div>
-            </div>
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button
+              onClick={() => scrollToSection('#clothing')}
+              className="group inline-flex items-center gap-2 bg-white text-mono-black px-8 py-4 text-sm font-semibold border-2 border-white transition-all duration-200 hover:bg-transparent hover:text-white focus-ring"
+            >
+              Browse Catalogs
+              <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-1" />
+            </button>
+            <button
+              onClick={() => scrollToSection('#contact')}
+              className="group inline-flex items-center gap-2 bg-transparent text-white px-8 py-4 text-sm font-semibold border-2 border-white transition-all duration-200 hover:bg-white hover:text-mono-black focus-ring"
+            >
+              Get in Touch
+              <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-1" />
+            </button>
           </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center pt-2">
+          <div className="w-1 h-2 bg-white/70 rounded-full animate-bounce" />
         </div>
       </div>
     </section>
