@@ -76,7 +76,7 @@ const Trophies = () => {
               href={catalog.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group flex items-stretch overflow-hidden bg-white border-2 border-mono-200 transition-all duration-300 hover:border-mono-black hover:shadow-lg focus-ring ${
+              className={`group flex items-stretch overflow-hidden bg-mono-900 border-2 border-mono-900 transition-all duration-300 hover:border-mono-black hover:shadow-xl focus-ring ${
                 isVisible
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-5'
@@ -85,7 +85,7 @@ const Trophies = () => {
             >
               {/* Logo Section - Full Height */}
               {catalog.logo ? (
-                <div className="w-24 flex items-center justify-center bg-mono-50 p-3 border-r-2 border-mono-200">
+                <div className="w-24 flex items-center justify-center bg-white p-3 border-r-2 border-mono-800">
                   <img
                     src={catalog.logo}
                     alt={`${catalog.name} logo`}
@@ -93,19 +93,19 @@ const Trophies = () => {
                   />
                 </div>
               ) : (
-                <div className="w-24 flex items-center justify-center bg-mono-black text-white font-bold text-xl border-r-2 border-mono-200">
+                <div className="w-24 flex items-center justify-center bg-mono-black text-white font-bold text-xl border-r-2 border-mono-800">
                   {catalog.name.charAt(0)}
                 </div>
               )}
               
               {/* Content Section */}
-              <div className="flex-1 flex items-center justify-center px-4 py-4 relative">
-                <span className="text-sm font-serif text-mono-black group-hover:text-mono-900 transition-colors text-center">
+              <div className="flex-1 flex items-center justify-center px-4 py-4 relative bg-white">
+                <span className="text-sm font-serif text-mono-black group-hover:text-mono-900 transition-colors text-center font-semibold">
                   {catalog.name}
                 </span>
                 <ExternalLink 
                   size={18} 
-                  className="absolute right-4 text-mono-400 group-hover:text-mono-black transition-colors" 
+                  className="absolute right-4 text-mono-600 group-hover:text-mono-black transition-colors" 
                 />
               </div>
             </a>
