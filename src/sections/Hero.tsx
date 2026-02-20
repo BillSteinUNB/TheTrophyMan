@@ -46,8 +46,14 @@ const Hero = () => {
               <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-1" />
             </button>
             <button
+              className="group inline-flex items-center gap-2 bg-white text-mono-black px-8 py-4 text-sm font-semibold border-2 border-white transition-all duration-200 hover:bg-transparent hover:text-white focus-ring"
+            >
+              Medal Mounting
+              <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-1" />
+            </button>
+            <button
               onClick={() => scrollToSection('#contact')}
-              className="group inline-flex items-center gap-2 bg-transparent text-white px-8 py-4 text-sm font-semibold border-2 border-white transition-all duration-200 hover:bg-white hover:text-mono-black focus-ring"
+              className="group inline-flex items-center gap-2 bg-white text-mono-black px-8 py-4 text-sm font-semibold border-2 border-white transition-all duration-200 hover:bg-transparent hover:text-white focus-ring"
             >
               Get in Touch
               <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-1" />
