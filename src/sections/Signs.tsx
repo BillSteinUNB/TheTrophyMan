@@ -285,17 +285,18 @@ const Signs = () => {
             Custom signs, stickers, and vinyl graphics. Request a quote for your project.
           </p>
         </div>
+      </div>
 
-        {/* Product Grid */}
-        <div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
-            {products.map((product, index) => (
-              <div
-                key={product.id}
-                className={`bg-white overflow-hidden transition-all duration-500 ${isVisible
-                  ? 'opacity-100'
-                  : 'opacity-0 translate-y-5'
-                  }`}
+      {/* Product Grid - Wider Container */}
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+          {products.map((product, index) => (
+            <div
+              key={product.id}
+              className={`bg-white overflow-hidden transition-all duration-500 ${isVisible
+                ? 'opacity-100'
+                : 'opacity-0 translate-y-5'
+                }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="aspect-square overflow-hidden">
@@ -326,7 +327,6 @@ const Signs = () => {
             </div>
           ))}
         </div>
-      </div>
       </div>
 
       {/* Quote Modal */}
