@@ -1,25 +1,26 @@
 import { useEffect, useRef, useState } from 'react';
-import { ExternalLink } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 interface Supplier {
   name: string;
   url: string;
   logo?: string;
+  scale?: number;
+  translateX?: string;
+  translateY?: string;
 }
 
 const suppliers: Supplier[] = [
-  { name: 'AJM', url: 'https://www.ajmintl.com/', logo: 'https://www.ajmintl.com/wp-content/uploads/2024/09/AJM-LOGO-web-2-150x150.png' },
-  { name: 'AlphaBroder', url: 'https://www.alphabroder.ca/home', logo: 'https://www.alphabroder.com/img/RotatingBanner_LoggedOutHomepage_03.27.25_US_Logo.png' },
-  { name: 'Athletic Knit', url: 'https://www.athleticknit.com/', logo: 'https://www.athleticknit.com/image/2020/04/athletic-knit-logo-2.png' },
-  { name: 'Augusta Sportswear', url: 'https://www.augustasportswear.com/', logo: 'https://www.augustasportswear.ca/logos/Augusta-LOGO_2C.png' },
-  { name: 'Biz Collection', url: 'https://www.bizcollection.ca/', logo: 'https://www.bizcollection.ca/wp-content/uploads/2018/10/biz-collection-logo-2.png' },
+  { name: 'AJM', url: 'https://www.ajmintl.com/', logo: '/AJMLogo.jpg', scale: 0.9 },
+  { name: 'Athletic Knit', url: 'https://www.athleticknit.com/', logo: '/AthleticKnit.png', scale: 1.15 },
+  { name: 'Biz Collection', url: 'https://www.bizcollection.ca/', logo: '/BizCollection.png', scale: 1.2 },
   { name: 'Canada Sportswear', url: 'https://canadasportswear.com/', logo: 'https://canadasportswear.com/cdn/shop/files/logos_for_webste_-_CSW_2024_300x300.jpg' },
-  { name: 'Fashion Biz', url: 'https://issuu.com/fashionbiznz/docs/2022_fashion_biz_-_ca?fr=sNDJkYjg2NjQ3' },
-  { name: 'Kobe Sportswear', url: 'https://kobesportswear.com/', logo: 'https://kobesportswear.com/wp-content/themes/kobesportswear/img/refresh/kobe_sportswear_logo_header.png' },
-  { name: 'S&S Canada', url: 'https://en-ca.ssactivewear.com/', logo: 'https://pbs.twimg.com/profile_images/1268592851755569154/xByCrI3w_400x400.jpg' },
-  { name: 'Sanmar', url: 'https://www.sanmarcanada.com/', logo: 'https://static.sanmarcanada.com/frontend/Infortis/ultimo_ui/en_US/images/logo.png' },
-  { name: 'Storm Tech', url: 'https://www.stormtech.ca/', logo: 'https://www.stormtechperformance.com/assets/img/logo.png' },
-  { name: 'TriMark Sportswear', url: 'https://www.trimarksportswear.com/home_page', logo: 'https://www.trimarksportswear.com/user/themes/trimark/images/logos/logo.svg' },
+  { name: 'Fashion Biz', url: 'https://issuu.com/fashionbiznz/docs/2022_fashion_biz_-_ca?fr=sNDJkYjg2NjQ3', logo: '/fashionbiz-logo.svg', scale: 0.65 },
+  { name: 'Kobe Sportswear', url: 'https://kobesportswear.com/', logo: 'https://kobesportswear.com/wp-content/themes/kobesportswear/img/refresh/kobe_sportswear_logo_header.png', scale: 0.65 },
+  { name: 'S&S Canada', url: 'https://en-ca.ssactivewear.com/', logo: '/S&S Activewear.png', scale: 0.6 },
+  { name: 'Sanmar', url: 'https://www.sanmarcanada.com/', logo: 'https://static.sanmarcanada.com/frontend/Infortis/ultimo_ui/en_US/images/logo.png', translateX: '10%', translateY: '10%' },
+  { name: 'Storm Tech', url: 'https://www.stormtech.ca/', logo: '/Stormtec.webp', scale: 1.15 },
+  { name: 'TriMark Sportswear', url: 'https://www.trimarksportswear.com/home_page', logo: '/Trimark.jpg', scale: 0.75 },
 ];
 
 const Clothing = () => {
@@ -48,73 +49,85 @@ const Clothing = () => {
     <section
       id="clothing"
       ref={sectionRef}
-      className="section-padding bg-mono-off-white"
+      className="bg-white flex flex-col"
     >
-      <div className="container-max">
-        {/* Header with Image */}
-        <div
-          className={`mb-12 md:mb-16 transition-all duration-500 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-          }`}
-        >
-          <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden mb-8">
-            <img
-              src="/cat-clothing.jpg"
-              alt="Clothing & Accessories"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <h2 className="text-heading text-mono-black mb-3">CLOTHING & ACCESSORIES</h2>
-          <div className="w-12 h-0.5 bg-mono-black mb-4" />
-          <div className="max-w-4xl mx-auto">
-            <p className="text-body text-mono-600">
-              Browse our trusted suppliers for apparel and accessories. Custom embroidery and screen printing available.
-            </p>
-          </div>
-        </div>
-
-        {/* Supplier Grid */}
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
-          {suppliers.map((supplier, index) => (
-            <a
-              key={supplier.name}
-              href={supplier.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`group flex items-center bg-white border border-mono-200 rounded-xl px-4 py-5 transition-all duration-300 hover:border-mono-400 hover:shadow-lg focus-ring ${
-                isVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-5'
-              }`}
-              style={{ transitionDelay: `${index * 75}ms` }}
-            >
-              {/* Logo Section - Fixed Width Container */}
-              <div className="w-28 h-20 flex items-center justify-center flex-shrink-0">
-                {supplier.logo ? (
-                  <img
-                    src={supplier.logo}
-                    alt={`${supplier.name} logo`}
-                    className="max-w-full max-h-full object-contain grayscale opacity-70 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
-                  />
-                ) : (
-                  <div className="w-16 h-16 flex items-center justify-center bg-mono-100 text-mono-600 font-bold text-xl rounded-lg">
-                    {supplier.name.charAt(0)}
-                  </div>
-                )}
-              </div>
-              
-              {/* Content Section */}
-              <div className="flex-1 flex items-center justify-between ml-4">
-                <span className="text-base font-sans font-medium text-mono-900 group-hover:text-mono-black transition-colors">
-                  {supplier.name}
-                </span>
-                <ExternalLink 
-                  size={20} 
-                  className="ml-3 text-mono-400 group-hover:text-mono-700 transition-colors flex-shrink-0" 
+      <div className="bg-mono-off-white w-full pt-[clamp(4rem,10vh,7.5rem)] pb-12 md:pb-16">
+        <div className="container-max">
+          {/* Header with Images */}
+          <div
+            className={`transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-8">
+              <div className="aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden flex items-center justify-center bg-mono-off-white rounded-2xl">
+                <img
+                  src="/TMHatHoodieNew.png"
+                  alt="Clothing & Accessories"
+                  className="w-full h-full object-contain scale-[0.85]"
                 />
               </div>
-            </a>
-          ))}
+              <div className="aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden flex items-center justify-center bg-mono-off-white rounded-2xl">
+                <img
+                  src="/Pivotboxing.png"
+                  alt="Boxer wearing Trophy Man apparel"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </div>
+            <h2 className="text-heading text-mono-black mb-3">CLOTHING & ACCESSORIES</h2>
+            <div className="w-12 h-0.5 bg-mono-black mb-4" />
+            <div className="max-w-4xl mx-auto">
+              <p className="text-body text-mono-600">
+                Browse our trusted suppliers for apparel and accessories. Custom embroidery and screen printing available.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="w-full py-12 md:py-16 pb-[clamp(4rem,10vh,7.5rem)]">
+        <div className="container-max">
+          {/* Supplier Grid */}
+          <div className="max-w-4xl mx-auto grid grid-cols-3 gap-4 md:gap-6">
+            {suppliers.map((supplier, index) => (
+              <a
+                key={supplier.name}
+                href={supplier.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group flex flex-col items-center justify-center bg-white rounded-xl p-6 transition-all duration-300 hover:shadow-md hover:-translate-y-1 focus-ring border border-mono-100/50 hover:border-mono-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+                style={{ transitionDelay: `${index * 75}ms` }}
+              >
+                {/* Logo Section */}
+                <div className="w-full h-24 sm:h-32 flex items-center justify-center mb-4">
+                  {supplier.logo ? (
+                    <img
+                      src={supplier.logo}
+                      alt={`${supplier.name} logo`}
+                      className="max-w-full max-h-full object-contain grayscale opacity-60 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
+                      style={{
+                        transform: `scale(${supplier.scale || 1}) translate(${supplier.translateX || '0'}, ${supplier.translateY || '0'})`,
+                      }}
+                    />
+                  ) : (
+                    <div className="w-16 h-16 flex items-center justify-center bg-mono-50 text-mono-400 font-bold text-2xl rounded-xl transition-colors duration-300 group-hover:bg-mono-100 group-hover:text-mono-800">
+                      {supplier.name.charAt(0)}
+                    </div>
+                  )}
+                </div>
+
+                {/* Content Section */}
+                <div className="flex items-center gap-2 w-full justify-center">
+                  <span className="text-sm sm:text-base font-sans font-medium text-mono-600 group-hover:text-mono-black transition-colors text-center">
+                    {supplier.name}
+                  </span>
+                  <ArrowUpRight
+                    size={16}
+                    className="text-mono-300 opacity-0 -translate-x-2 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:text-mono-black"
+                  />
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>

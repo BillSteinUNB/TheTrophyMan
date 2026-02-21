@@ -33,21 +33,21 @@ const products: Product[] = [
     name: 'Signs',
     description: 'Durable outdoor and indoor signage.',
     details: ['Any Shape', 'Any Size', 'Corex or Alupanel'],
-    image: '/product-signs.jpg',
+    image: '/TMSignNEw.png',
   },
   {
     id: 'vinyl',
     name: 'Vinyl Car Stickers/Wraps',
     description: 'Vehicle graphics and window decals.',
     details: ['Any Shape', 'Any Size', 'Full or Partial Wraps'],
-    image: '/product-vinyl.jpg',
+    image: '/TMVanPhotoNew.png',
   },
   {
     id: 'banners',
     name: 'Banners',
     description: 'Large format banners for events and displays.',
     details: ['Any Shape', 'Any Size', 'Any Design'],
-    image: '/product-banners.jpg',
+    image: '/Gemini_Generated_Image_vxahmcvxahmcvxah.png',
   },
 ];
 
@@ -263,15 +263,20 @@ const Signs = () => {
       <div className="container-max">
         {/* Header with Image */}
         <div
-          className={`mb-12 md:mb-16 transition-all duration-500 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-          }`}
+          className={`mb-12 md:mb-16 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+            }`}
         >
-          <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden mb-8">
-            <img
-              src="/cat-signs.jpg"
-              alt="Signs & Stickers"
-              className="w-full h-full object-cover"
+          <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden mb-8 flex items-center justify-center">
+            <video
+              ref={(el) => {
+                if (el) el.playbackRate = 0.85;
+              }}
+              src="/0220.mp4"
+              className="w-full h-full object-cover scale-[0.9] saturate-[0.6] sepia-[10%] opacity-90 transition-all duration-700 hover:saturate-100 hover:sepia-0 hover:opacity-100"
+              autoPlay
+              loop
+              muted
+              playsInline
             />
           </div>
           <h2 className="text-heading text-mono-black mb-3">SIGNS & STICKERS</h2>
@@ -286,18 +291,17 @@ const Signs = () => {
           {products.map((product, index) => (
             <div
               key={product.id}
-              className={`bg-white overflow-hidden transition-all duration-500 ${
-                isVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-5'
-              }`}
+              className={`bg-white overflow-hidden transition-all duration-500 ${isVisible
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-5'
+                }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="aspect-square overflow-hidden">
+              <div className="aspect-square overflow-hidden flex items-center justify-center">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover"
+                  className={`w-full h-full object-cover ${product.image.includes('TMVanPhotoNew') ? 'scale-90' : ''}`}
                   loading="lazy"
                 />
               </div>
