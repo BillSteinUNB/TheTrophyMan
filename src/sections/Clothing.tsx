@@ -55,7 +55,7 @@ const Clothing = () => {
         <div className="container-max">
           {/* Header with Images */}
           <div
-            className={`transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+            className={`transition-all duration-500 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-5'}`}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-8">
               <div className="aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden flex items-center justify-center bg-mono-off-white rounded-2xl">
@@ -63,7 +63,6 @@ const Clothing = () => {
                   src="/TMHatHoodieNew.png"
                   alt="Clothing & Accessories"
                   className="w-[85%] h-[85%] object-contain"
-                  style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
                 />
               </div>
               <div className="aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden flex items-center justify-center bg-mono-off-white rounded-2xl">
@@ -71,7 +70,6 @@ const Clothing = () => {
                   src="/Pivotboxing.png"
                   alt="Boxer wearing Trophy Man apparel"
                   className="w-full h-full object-contain"
-                  style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
                 />
               </div>
             </div>
@@ -96,7 +94,7 @@ const Clothing = () => {
                 href={supplier.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group flex flex-col items-center justify-center bg-white rounded-xl p-6 transition-all duration-300 hover:shadow-md hover:-translate-y-1 focus-ring border border-mono-100/50 hover:border-mono-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+                className={`group flex flex-col items-center justify-center bg-white rounded-xl p-6 transition-all duration-300 hover:shadow-md hover:-translate-y-1 focus-ring border border-mono-100/50 hover:border-mono-200 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-5'}`}
                 style={{ transitionDelay: `${index * 75}ms` }}
               >
                 {/* Logo Section */}

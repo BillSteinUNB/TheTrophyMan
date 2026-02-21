@@ -49,7 +49,7 @@ const Trophies = () => {
         <div className="container-max">
           {/* Header with Image */}
           <div
-            className={`transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+            className={`transition-all duration-500 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-5'
               }`}
           >
             <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden mb-8">
@@ -84,7 +84,7 @@ const Trophies = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`group flex flex-col items-center justify-center bg-white rounded-xl p-6 transition-all duration-300 hover:shadow-md hover:-translate-y-1 focus-ring border border-mono-100/50 hover:border-mono-200 ${isVisible
-                  ? 'opacity-100 translate-y-0'
+                  ? 'opacity-100'
                   : 'opacity-0 translate-y-5'
                   }`}
                 style={{ transitionDelay: `${index * 75}ms` }}

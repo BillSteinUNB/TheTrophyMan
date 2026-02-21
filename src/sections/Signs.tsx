@@ -263,7 +263,7 @@ const Signs = () => {
       <div className="container-max">
         {/* Header with Image */}
         <div
-          className={`mb-12 md:mb-16 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+          className={`mb-12 md:mb-16 transition-all duration-500 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-5'
             }`}
         >
           <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden mb-8 flex items-center justify-center">
@@ -292,7 +292,7 @@ const Signs = () => {
             <div
               key={product.id}
               className={`bg-white overflow-hidden transition-all duration-500 ${isVisible
-                ? 'opacity-100 translate-y-0'
+                ? 'opacity-100'
                 : 'opacity-0 translate-y-5'
                 }`}
               style={{ transitionDelay: `${index * 100}ms` }}
@@ -302,10 +302,6 @@ const Signs = () => {
                   src={product.image}
                   alt={product.name}
                   className="w-full h-full object-cover"
-                  style={{
-                    transform: 'translateZ(0)',
-                    backfaceVisibility: 'hidden'
-                  }}
                   loading="lazy"
                 />
               </div>
