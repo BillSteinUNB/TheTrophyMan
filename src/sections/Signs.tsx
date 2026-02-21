@@ -287,7 +287,7 @@ const Signs = () => {
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {products.map((product, index) => (
             <div
               key={product.id}
@@ -297,11 +297,11 @@ const Signs = () => {
                 }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className={`aspect-square overflow-hidden flex items-center justify-center ${product.image.includes('TMVanPhotoNew') ? 'p-4' : ''}`}>
+              <div className="aspect-square overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="max-w-full max-h-full w-auto h-auto object-contain"
+                  className="w-full h-full object-cover"
                   loading="lazy"
                 />
               </div>
