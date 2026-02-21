@@ -287,7 +287,7 @@ const Signs = () => {
         </div>
 
         {/* Product Grid */}
-        <div className="max-w-6xl mx-auto">
+        <div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
             {products.map((product, index) => (
               <div
