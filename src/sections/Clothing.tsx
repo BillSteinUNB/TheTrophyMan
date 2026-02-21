@@ -60,7 +60,7 @@ const Clothing = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-8">
               <div className="aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden flex items-center justify-center bg-mono-off-white rounded-2xl">
                 <img
-                  src="/TMHatHoodieNew.png"
+                  src="/TMHatHoodieNew_thumb.png"
                   alt="Clothing & Accessories"
                   className="w-[85%] h-[85%] object-contain"
                 />

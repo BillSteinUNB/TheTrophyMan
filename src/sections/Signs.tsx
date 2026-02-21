@@ -33,21 +33,21 @@ const products: Product[] = [
     name: 'Signs',
     description: 'Durable outdoor and indoor signage.',
     details: ['Any Shape', 'Any Size', 'Corex or Alupanel'],
-    image: '/TMSignNEw.png',
+    image: '/TMSignNEw_thumb.png',
   },
   {
     id: 'vinyl',
     name: 'Vinyl Car Stickers/Wraps',
     description: 'Vehicle graphics and window decals.',
     details: ['Any Shape', 'Any Size', 'Full or Partial Wraps'],
-    image: '/TMVanPhotoNew.png',
+    image: '/TMVanPhotoNew_thumb.png',
   },
   {
     id: 'banners',
     name: 'Banners',
     description: 'Large format banners for events and displays.',
     details: ['Any Shape', 'Any Size', 'Any Design'],
-    image: '/Gemini_Generated_Image_vxahmcvxahmcvxah.png',
+    image: '/Banners_thumb.png',
   },
 ];
 
