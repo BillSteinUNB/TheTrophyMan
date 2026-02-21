@@ -301,7 +301,7 @@ const Signs = () => {
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover"
+                  className="max-w-full max-h-full w-auto h-auto object-contain"
                   loading="lazy"
                 />
               </div>
