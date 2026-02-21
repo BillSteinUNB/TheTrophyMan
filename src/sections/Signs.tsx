@@ -297,11 +297,15 @@ const Signs = () => {
                 }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="aspect-square overflow-hidden flex items-center justify-center">
+              <div className={`aspect-square overflow-hidden flex items-center justify-center ${product.image.includes('TMVanPhotoNew') ? 'p-4' : ''}`}>
                 <img
                   src={product.image}
                   alt={product.name}
-                  className={`w-full h-full object-cover ${product.image.includes('TMVanPhotoNew') ? 'scale-90' : ''}`}
+                  className="w-full h-full object-cover"
+                  style={{
+                    transform: 'translateZ(0)',
+                    backfaceVisibility: 'hidden'
+                  }}
                   loading="lazy"
                 />
               </div>

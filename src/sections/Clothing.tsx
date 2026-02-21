@@ -62,7 +62,8 @@ const Clothing = () => {
                 <img
                   src="/TMHatHoodieNew.png"
                   alt="Clothing & Accessories"
-                  className="w-full h-full object-contain scale-[0.85]"
+                  className="w-[85%] h-[85%] object-contain"
+                  style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
                 />
               </div>
               <div className="aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden flex items-center justify-center bg-mono-off-white rounded-2xl">
@@ -70,6 +71,7 @@ const Clothing = () => {
                   src="/Pivotboxing.png"
                   alt="Boxer wearing Trophy Man apparel"
                   className="w-full h-full object-contain"
+                  style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
                 />
               </div>
             </div>
