@@ -327,6 +327,7 @@ const Signs = () => {
           ))}
         </div>
       </div>
+      </div>
 
       {/* Quote Modal */}
       {activeModal && activeProduct && (
