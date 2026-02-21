@@ -287,14 +287,15 @@ const Signs = () => {
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-          {products.map((product, index) => (
-            <div
-              key={product.id}
-              className={`bg-white overflow-hidden transition-all duration-500 ${isVisible
-                ? 'opacity-100'
-                : 'opacity-0 translate-y-5'
-                }`}
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
+            {products.map((product, index) => (
+              <div
+                key={product.id}
+                className={`bg-white overflow-hidden transition-all duration-500 ${isVisible
+                  ? 'opacity-100'
+                  : 'opacity-0 translate-y-5'
+                  }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="aspect-square overflow-hidden">
